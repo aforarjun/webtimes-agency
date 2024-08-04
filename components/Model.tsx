@@ -1,48 +1,51 @@
 "use client";
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { AnimatePresence, motion } from 'framer-motion';
 import ReactDOM from "react-dom";
-import { RiCloseFill } from "react-icons/ri";
 
 interface Props {
-  title: string;
-  isOpen: boolean;
-  onClose: () => void;
   children: React.ReactNode;
+  isOpen: boolean;
+  setOpen: (arg0: boolean) => void;
   style?: any;
-  footer?: React.ReactNode;
 };
 
-const Modal = ({ title, isOpen, onClose, children, footer }: Props) => {
+export const Modal = ({ isOpen, setOpen, children }: Props) => {
   if (!isOpen) return null;
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    
+    return () => {
+      document.body.style.overflow = "auto";
+    }
+  }, []);
+
+  const modalRef = useRef(null);
+  useOutsideClick(modalRef, () => setOpen(false));
+
   const modalContent = (
-    <div id="default-modal" tabIndex={-1} aria-hidden="true" className="flex items-start overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-      <div className="relative p-4 w-full max-w-4xl max-h-full">
-
-          {/* <!-- Modal content --> */}
-          <div className="relative bg-white dark:bg-linearDark rounded-lg shadow">
-              {/* <!-- Modal header --> */}
-              <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-                <h3 className="text-xl font-semibold">{title}</h3>
-                <RiCloseFill size={35} className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" onClick={onClose} />
-              </div>
-
-              {/* <!-- Modal body --> */}
-              <div className="p-4 md:p-5 space-y-4">
-                {children}
-              </div>
-
-              {/* <!-- Modal footer --> */}
-              {footer && (
-                <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                  {footer}
-                </div>
-              )}
-          </div>
-
-      </div>
-    </div>
+    <AnimatePresence>
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+          backdropFilter: "blur(10px)"
+        }}
+        exit={{
+          opacity: 0,
+          backdropFilter: "blur(0px)",
+        }}
+        className="fixed [perspective:800px] [transform-style:preserve-3d] bg-lightText-dark inset-0 h-full w-full  flex items-center justify-center z-[999]"
+      >
+        <div className="relative border border-borderLine rounded-lg shadow">
+          {children}
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 
   return ReactDOM.createPortal(
@@ -51,4 +54,45 @@ const Modal = ({ title, isOpen, onClose, children, footer }: Props) => {
   );
 };
 
-export default Modal;
+export const ModalHeader = ({children}: {children: React.ReactNode}) => (
+  <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+    {children}
+  </div>
+);
+
+export const ModalContent = ({children}: {children: React.ReactNode}) => (
+  <div className="p-4 md:p-5 space-y-4">
+    {children}
+  </div>
+);
+
+export const ModalFooter = ({children}: {children: React.ReactNode}) => (
+  <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+    {children}
+  </div>
+)
+
+// Hook to detect clicks outside of a component.
+// Add it in a separate file, I've added here for simplicity
+export const useOutsideClick = (
+  ref: React.RefObject<HTMLDivElement>,
+  callback: Function
+) => {
+  useEffect(() => {
+    const listener = (event: any) => {
+      // DO NOTHING if the element being clicked is the target element or their children
+      if (!ref.current || ref.current.contains(event.target)) {
+        return;
+      }
+      callback(event);
+    };
+
+    document.addEventListener("mousedown", listener);
+    document.addEventListener("touchstart", listener);
+
+    return () => {
+      document.removeEventListener("mousedown", listener);
+      document.removeEventListener("touchstart", listener);
+    };
+  }, [ref, callback]);
+};

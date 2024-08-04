@@ -4,9 +4,9 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import StoreProvider from "@/providers/StoreProvider";
-import { store } from "@/redux-store/store";
+// import { store } from "@/redux-store/store";
+// import { fetchProjects } from "@/redux-store/slices/projectsSlice";
 import { Toaster } from "react-hot-toast";
-import { fetchProjects } from "@/redux-store/slices/projectsSlice";
 
 export const metadata: Metadata = {
   title: "Webtimes - #1 website agency",
@@ -35,7 +35,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  await store.dispatch(fetchProjects());
+  // await store.dispatch(fetchProjects());
 
   return (
     <html lang="en" suppressHydrationWarning>
