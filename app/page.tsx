@@ -1,113 +1,91 @@
-import Image from "next/image";
+import HomeHero from "@/components/ui/home/HomeHero";
+import MargueeTags from "@/components/ui/MargueeTags";
+import ExploreServices from "@/components/ui/home/ExploreServices";
+import CommonSec from "@/components/ui/CommonSec/CommonSec";
+import ServiceIndustries from "@/components/ui/ServiceIndustries/ServiceIndustries";
+import ServicesSwiper from "@/components/ui/ServicesSwiper";
+import VideoPlayer from "@/components/ui/home/VideoPlayer";
+import ReviewsSection from "@/components/ui/ReviewsSection";
+import Prefooter from "@/components/ui/Prefooter/Prefooter";
+import { FaqsSection } from "@/components/ui/FaqsSection";
+// import Projects from "@/components/ui/home/projects/Projects";
+// import ClientsSection from "@/components/ui/ClientsSection";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <main>
+      <HomeHero />
+      <MargueeTags tags={["Development",
+        "Web/App Design",
+        "Dashboard",
+        "Strategy",
+        "Create Uniqueness",
+        "SEO",
+        "Social"]}
+      />
+      
+      <CommonSec
+        tag="IT'S TIME TO GROW!"
+        title="We help local businesses grow <span>Leads</span> & <span>Revenue</span>"
+        content="Whether you are looking for end-to-end website design or looking to optimize your website with some powerful integrations, webdew is here to make it happen. Additional features and integrations will turn your website into a multi-faceted, highly-functioning machine. All you have to do is tell us what you need."
+        image="/webtimes-about-us01.jpg"
+        buttonTitle="Contact us"
+        link="/contact-us"
+      />
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <CommonSec
+        tag="ABOUT US"
+        title="Webtimes is a digital marketing agency driving real results nationwide"
+        content="Formerly Today’s Local Media, webtimes is a digital marketing brand built to bring new leads to businesses and accelerate their growth. We do this by increasing brand awareness, leveraging online advertising, and expanding their local presence."
+        image="/webtimes-about-us03.jpeg"
+        buttonTitle="See Why Our Clients Trust Us"
+        link="/contact-us"
+        flip={true}
+        component={
+          <ul className="mt-5 flex gap-3">
+            <li>
+              <h4 className="text-lightText dark:text-lightText-dark">FAST CUSTOMER SERVICE</h4>
+              <p className="!mt-1">Contact us today, and your issue will be handled right away. You won’t be put in a queue.</p>
+            </li>
+            <li>
+              <h4 className="text-lightText dark:text-lightText-dark">PROACTIVE, NOT REACTIVE</h4>
+              <p className="!mt-1">We are always monitoring your account and strategizing on ways to make your business.</p>
+            </li>
+          </ul>
+        }
+      />
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <ExploreServices />
+      <ServicesSwiper />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+      <CommonSec
+        tag="WEBSITE DESIGN"
+        title="Beautiful websites that increase leads"
+        content="As a full-service marketing agency serving clients nationwide, our mission is to fuel your business’s growth through innovative strategies that generate new leads and accelerate success."
+        image="/web-design-celedon.png"
+        buttonTitle="See Why Our Clients Trust Us"
+        link="/contact-us"
+        imageFit="contain"
+        component={
+          <>
+            <VideoPlayer />
+            <ul className="mt-5 flex flex-col gap-1 list-disc font-kamron">
+              <li className="text-xl text-gray-800 dark:text-gray-200">Lead generating design</li>
+              <li className="text-xl text-gray-800 dark:text-gray-200">Track every form and call</li>
+              <li className="text-xl text-gray-800 dark:text-gray-200">Fast customer service</li>
+            </ul>
+          </>
+        }
+      />
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <ServiceIndustries />
+      
+      <ReviewsSection />
+      {/* <Projects /> */}
+      {/* <ClientsSection /> */}
+      <FaqsSection />
+      
+      <Prefooter />
     </main>
   );
 }

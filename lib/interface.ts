@@ -45,14 +45,14 @@ export interface Service {
 }
 
 export interface Project {
-  _id: string;
+  _id?: string;
   title: string;
-  description: string;
-  categories: {
+  description?: string;
+  categories?: {
     label: string;
     value: string;
   }[];
-  technologies: {
+  technologies?: {
     label: string;
     value: string;
   }[];

@@ -1,5 +1,10 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+# Styles 
+1. Magicui
+2. tailwind Css
+<!-- 3. shadCN -->
+
 ## Getting Started
 
 First, run the development server:
