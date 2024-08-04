@@ -21,21 +21,24 @@ const AboutMe = () => {
                     className='drag-item absolute w-full max-w-[500px] top-0 right-0 [backdrop-filter:blur(10px)] [background-color:rgba(255,255,255,0.25)]'
                     drag
                     dragConstraints={constraintsRef}
-                    children={<ImageCard title="Arjun Singh" />}
-                />
+                >
+                    <ImageCard title="Arjun Singh" />
+                </motion.div>
                 <motion.div
                     // onMouseDown={mouseDownListner}
                     className='drag-item absolute w-full max-w-[500px] top-0 left-0 [backdrop-filter:blur(10px)] [background-color:rgba(255,255,255,0.25)]'
                     drag
                     dragConstraints={constraintsRef}
-                    children={<About title="About Me" />}
-                />
+                >
+                    <About title="About Me" />
+                </motion.div>
                 <motion.div
                     className='drag-item absolute w-full max-w-[300px] bottom-0 left-1/2 [backdrop-filter:blur(10px)] [background-color:rgba(255,255,255,0.25)]'
                     drag
                     dragConstraints={constraintsRef}
-                    children={<WhereIWork title="Where I Work" />}
-                />
+                >
+                    <WhereIWork title="Where I Work" />
+                </motion.div>
                 {/* <motion.div
                     className='drag-item absolute w-full max-w-[400px] bottom-0 right-1/2 [backdrop-filter:blur(10px)] [background-color:rgba(255,255,255,0.25)]'
                     drag
@@ -46,8 +49,9 @@ const AboutMe = () => {
                     className='drag-item absolute w-full max-w-[250px] bottom-[-30px] [backdrop-filter:blur(10px)] [background-color:rgba(255,255,255,0.25)]'
                     drag
                     dragConstraints={constraintsRef}
-                    children={<FindMeOnline title='Find me Online' />}
-                />
+                >
+                    <FindMeOnline title='Find me Online' />
+                </motion.div>
             </div>
 
         </div>
@@ -63,7 +67,7 @@ const About = ({title}: {title: string}) => (
     <div className='border border-borderLine'>
         <p className='px-3 py-1'>{title}</p>
         <ol className='list-decimal border border-borderLine p-4 pl-8 flex flex-col gap-2'>
-            <li>Hi, I'm Arjun, a freelance Frontend web developer.</li>
+            <li>Hi, I&apos;m Arjun, a freelance Frontend web developer.</li>
             <li>Graduated in 2021 from NIT Allahabd.</li>
             <li>My focus is on creative development: my skills describe between Optimized, security and technical proficiency.</li>
             <li>My favorite technologies are based on the Javascripy & React paradigm: while my focus is on front-end development , I can also take care of all other stages of the whole development process, from the CMS configuration, to the live deployment on the hosting platform.</li>

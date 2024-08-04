@@ -1,4 +1,4 @@
-import { User } from "@/utils/interface";
+import { User } from "@/lib/interface";
 import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
 

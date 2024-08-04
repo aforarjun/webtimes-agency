@@ -1,13 +1,13 @@
 "use client";
 
 // import React, { useEffect } from "react";
-import styles from "@/styles/userLoginSignup.module.scss";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { UserSchema } from "@/lib/schema";
 import { PasswordInput, TextInput } from "@/components/InputComponents-control";
 import Button from "@/components/Button";
+import styles from '../userLoginSignup.module.scss'
 // import { useRouter } from "next/navigation";
 // import toast from "react-hot-toast";
 

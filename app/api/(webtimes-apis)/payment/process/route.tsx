@@ -8,7 +8,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
   }
 
   const stripeClient = new Stripe(`${process.env.STRIPE_SEC_KEY}`, {
-    apiVersion: "2023-10-16",
+    apiVersion: "2024-06-20",
   });
 
   try {

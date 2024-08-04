@@ -24,9 +24,7 @@ const ReviewsSection: React.FC = () => {
 
                     <div className="w-full md:max-w-full">
                         <h3 className="font-bold max-md:max-w-full">We exist to lead change in the Web world.</h3>
-                        <p className="mt-3 max-md:max-w-full">
-                            Find out how our culture, approach and knowledge have made us a design partner to some of the world's leading web3 pioneers.
-                        </p>
+                        <p className="mt-3 max-md:max-w-full">Find out how our culture, approach and knowledge have made us a design partner to some of the world&apos;s leading web3 pioneers.</p>
                     </div>
                 </div>
             </div>
@@ -72,7 +70,7 @@ const ReviewCard = ({
         )}
       >
         <div className="flex flex-row items-center gap-2">
-          <img className="rounded-full" width="32" height="32" alt="" src={img} />
+          <Image className="rounded-full" width="32" height="32" alt="img" src={img} />
           <div className="flex flex-col">
             <figcaption className="text-sm font-medium">
               {name}

@@ -5,7 +5,7 @@ import { connectDb } from "@/app/api/middleware/mongoose";
 import User from "@/app/api/models/user";
 import { sendEmail } from "@/app/api/helper/sendMail";
 import { ErrorRes } from "@/app/api/helper/ErrorRes";
-import { User as UserType } from "@/utils/interface";
+import { User as UserType } from "@/lib/interface";
 
 export async function POST(req: NextRequest) {
   try {
