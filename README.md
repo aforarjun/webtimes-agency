@@ -3,6 +3,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 # Styles 
 1. Magicui
 2. tailwind Css
+3. ui.aceternity - https://ui.aceternity.com/
 <!-- 3. shadCN -->
 
 ## Getting Started
