@@ -1,17 +1,16 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion';
 import ReactDOM from "react-dom";
 
 interface Props {
   children: React.ReactNode;
   isOpen: boolean;
-  setOpen: (arg0: boolean) => void;
   style?: any;
 };
 
-export const Modal = ({ isOpen, setOpen, children }: Props) => {
+export const Modal = ({ isOpen, children }: Props) => {
   if (!isOpen) return null;
 
   useEffect(() => {
@@ -22,8 +21,8 @@ export const Modal = ({ isOpen, setOpen, children }: Props) => {
     }
   }, []);
 
-  const modalRef = useRef(null);
-  useOutsideClick(modalRef, () => setOpen(false));
+  // const modalRef = useRef(null);
+  // useOutsideClick(modalRef, () => setOpen(false));
 
   const modalContent = (
     <AnimatePresence>
@@ -74,25 +73,25 @@ export const ModalFooter = ({children}: {children: React.ReactNode}) => (
 
 // Hook to detect clicks outside of a component.
 // Add it in a separate file, I've added here for simplicity
-export const useOutsideClick = (
-  ref: React.RefObject<HTMLDivElement>,
-  callback: Function
-) => {
-  useEffect(() => {
-    const listener = (event: any) => {
-      // DO NOTHING if the element being clicked is the target element or their children
-      if (!ref.current || ref.current.contains(event.target)) {
-        return;
-      }
-      callback(event);
-    };
+// export const useOutsideClick = (
+//   ref: React.RefObject<HTMLDivElement>,
+//   callback: Function
+// ) => {
+//   useEffect(() => {
+//     const listener = (event: any) => {
+//       // DO NOTHING if the element being clicked is the target element or their children
+//       if (!ref.current || ref.current.contains(event.target)) {
+//         return;
+//       }
+//       callback(event);
+//     };
 
-    document.addEventListener("mousedown", listener);
-    document.addEventListener("touchstart", listener);
+//     document.addEventListener("mousedown", listener);
+//     document.addEventListener("touchstart", listener);
 
-    return () => {
-      document.removeEventListener("mousedown", listener);
-      document.removeEventListener("touchstart", listener);
-    };
-  }, [ref, callback]);
-};
+//     return () => {
+//       document.removeEventListener("mousedown", listener);
+//       document.removeEventListener("touchstart", listener);
+//     };
+//   }, [ref, callback]);
+// };
