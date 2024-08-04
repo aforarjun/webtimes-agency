@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useEffect } from 'react'
+import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion';
 import ReactDOM from "react-dom";
 
@@ -13,13 +11,13 @@ interface Props {
 export const Modal = ({ isOpen, children }: Props) => {
   if (!isOpen) return null;
 
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
+  // useEffect(() => {
+  //   document.body.style.overflow = "hidden";
     
-    return () => {
-      document.body.style.overflow = "auto";
-    }
-  }, []);
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //   }
+  // }, []);
 
   // const modalRef = useRef(null);
   // useOutsideClick(modalRef, () => setOpen(false));

@@ -12,12 +12,12 @@ import Link from "next/link";
 import { Project } from "@/lib/interface";
 
 export const HeroParallax = ({header, products,}: {header: React.ReactNode | any; products: Project[];}) => {
-    let projectsLength = products.length;
+    let projectsLength = products?.length;
     const productRows: Array<Project[]> = [];
 
-    if(projectsLength < 5){
-        productRows.push(products);
-        productRows.push(products);
+    if(projectsLength < 5 && projectsLength > 0){
+      productRows.push(products);
+      productRows.push(products);
     } else {
       productRows.push(products.slice(0, projectsLength/2));
       productRows.push(products.slice(projectsLength/2));

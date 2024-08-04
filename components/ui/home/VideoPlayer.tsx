@@ -22,7 +22,7 @@ const VideoPlayer = () => {
     </div>
 
     {isOpen && (
-        <Modal isOpen={isOpen} setOpen={setIsOpen}>
+        <Modal isOpen={isOpen}>
             <ModalHeader>
                 <h3 className="text-xl font-semibold">{"Project Video"}</h3>
                 <button
