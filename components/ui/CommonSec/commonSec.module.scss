@@ -1,0 +1,58 @@
+.comSec {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  padding: 100px 0;
+
+  @media screen and (max-width: 1024px) {
+    padding: 80px 0;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  gap: 60px;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+.comSec_text {
+  max-width: 550px;
+  width: 100%;
+
+  h2 span{
+    text-decoration: underline;
+    text-decoration-color: #FF8A56;
+    color: #FF8A56;
+  }
+
+  p {
+    line-height: 25px;
+    margin-top: 25px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    max-width: 400px;
+  }
+}
+
+.comSec_image {
+  max-width: 650px;
+  height: 500px;
+  width: 100%;
+  position: relative;
+
+  @media screen and (max-width: 1200px) {
+    max-width: 550px;
+    height: 380px;
+  }
+
+  @media screen and (max-width: 500px) {
+    height: 300px;
+  }
+}
